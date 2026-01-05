@@ -127,7 +127,7 @@ class MEGNetModel(GraphModel):
         opt_params = {"learning_rate": lr}
         if optimizer_kwargs is not None:
             opt_params.update(optimizer_kwargs)
-        model.compile(Adam(**opt_params), loss, metrics=metrics, sample_weight_mode=sample_weight_mode)
+        model.compile(Adam(**opt_params), loss, metrics=metrics)
 
         if graph_converter is None:
             graph_converter = CrystalGraph(cutoff=4, bond_converter=GaussianDistance(np.linspace(0, 5, 100), 0.5))
